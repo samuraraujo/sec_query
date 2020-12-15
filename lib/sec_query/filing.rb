@@ -151,10 +151,10 @@ module SecQuery
       filings = []
       if document.xpath('//content').to_s.length > 0
         document.xpath('//content').each do |e|
-          if e.xpath('//content/accession-nunber').to_s.length > 0
+          if e.xpath('//content/accession-number').to_s.length > 0
             content = Hash.from_xml(e.to_s)['content']
             content[:cik] = cik
-            content[:file_id] = content.delete('accession_nunber')
+            content[:file_id] = content.delete('accession_number')
             content[:date] = content.delete('filing_date')
             content[:link] = content.delete('filing_href')
             content[:term] = content.delete('filing_type')
